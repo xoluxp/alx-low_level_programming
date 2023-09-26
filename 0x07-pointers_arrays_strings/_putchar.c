@@ -1,14 +1,19 @@
-#include "main.h"
-#include <unistd.h>
-
+#include "holberton.h"
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
+ * _memcpy - function that copies memory area
+ *@dest: the address of memory to print
+ *@src: second value
+ *@n: thirth value
  *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * Return: char with result of memset
  */
-int _putchar(char c)
+char *_memcpy(char *dest, char *src, unsigned int n)
 {
-	return (write(1, &c, 1));
+	unsigned int i;
+
+	for (i = 0; i < n; i++)
+	{
+		dest[i] = src[i];
+	}
+	return (dest);
 }
