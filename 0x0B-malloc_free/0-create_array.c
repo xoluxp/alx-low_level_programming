@@ -1,13 +1,23 @@
-#include <unistd.h>
-
+#include "main.h"
+#include <stdlib.h>
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
+ * create_array - create array of size size and assign char c
+ * @size: size of array
+ * @c: char to assign
+ * Description: create array of size size and assign char c
+ * Return: pointer to array, NULL if fail
  *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
  */
-int _putchar(char c)
+char *create_array(unsigned int size, char c)
 {
-	return (write(1, &c, 1));
+	char *str;
+	unsigned int i;
+
+	str = malloc(sizeof(char) * size);
+	if (size == 0 || str == NULL)
+		return (NULL);
+
+	for (i = 0; i < size; i++)
+		str[i] = c;
+	return (str);
 }
